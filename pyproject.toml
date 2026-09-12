@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "veilchat"
+version = "1.0.0"
+description = "Serverless P2P messenger with end-to-end encryption — no accounts, no servers, no metadata."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Reza Bazdar (Godde3s)" }]
+requires-python = ">=3.10"
+keywords = ["p2p", "encryption", "messenger", "privacy", "asyncio", "chacha20"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Communications :: Chat",
+    "Topic :: Security :: Cryptography",
+]
+dependencies = ["cryptography>=41.0"]
+
+[project.scripts]
+veilchat = "veilchat.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
